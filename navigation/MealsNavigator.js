@@ -12,7 +12,6 @@ import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import { Button } from 'react-native';
 
 const Stack = createStackNavigator();
-
 const MealsNavigator = () => {
     return (
         <Stack.Navigator
@@ -51,13 +50,23 @@ const MealsNavigator = () => {
     )
 };
 
-const MealsTabNavigator = createBottomTabNavigator();
+const favoritesStack = createStackNavigator();
+const FavoritesNavigator = () => {
+    return (
+        <favoritesStack.Navigator>
+            <favoritesStack.Screen name="Favorites" component={FavoritesScreen}
+                options={{ title: 'Favorite List' }} />
+            <favoritesStack.Screen name="MealDetail" component={MealDetailScreen} />
+        </favoritesStack.Navigator>
+    )
+};
 
+const MealsTabNavigator = createBottomTabNavigator();
 const TabNavigator = () => {
     return (
         <MealsTabNavigator.Navigator>
             <MealsTabNavigator.Screen name="Meals" component={MealsNavigator} />
-            <MealsTabNavigator.Screen name="Favorites" component={FavoritesScreen} />
+            <MealsTabNavigator.Screen name="Favorite" component={FavoritesNavigator} />
         </MealsTabNavigator.Navigator>
     )
 };
