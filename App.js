@@ -4,12 +4,12 @@ import { NavigationContainer } from '@react-navigation/native';
 import { StyleSheet, View, Text } from 'react-native';
 
 import { Colors } from 'react-native/Libraries/NewAppScreen';
-import TabNavigator from '../mealApp/navigation/MealsNavigator';
+import DrawerNavigator from '../mealApp/navigation/MealsNavigator';
 
 const App = () => {
   return (
     <NavigationContainer>
-      <TabNavigator />
+      <DrawerNavigator />
     </NavigationContainer>
   )
 }
