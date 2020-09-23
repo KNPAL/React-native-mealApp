@@ -2,6 +2,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
+import { NavigationContainer } from '@react-navigation/native';
 import CategoriesScreen from '../Screens/CategoriesScreen';
 import CategoryMealScreen from '../Screens/CategoryMealScreen';
 import MealDetailScreen from '../Screens/MealDetailScreen';
@@ -12,7 +13,7 @@ import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import Colors from '../constants/Colors';
 
 const Stack = createStackNavigator();
-const MealsNavigator = () => {
+const MealStactNavigator = () => {
     return (
         <Stack.Navigator
             screenOptions={{
@@ -47,6 +48,13 @@ const MealsNavigator = () => {
                 }}
             />
         </Stack.Navigator>
+    )
+};
+const MealsNavigator = () => {
+    return (
+        <NavigationContainer>
+            <DrawerNavigator />
+        </NavigationContainer>
     )
 };
 
@@ -94,7 +102,7 @@ const MealsTabNavigator = createBottomTabNavigator();
 const TabNavigator = () => {
     return (
         <MealsTabNavigator.Navigator>
-            <MealsTabNavigator.Screen name="Meals" component={MealsNavigator} />
+            <MealsTabNavigator.Screen name="Meals" component={MealStactNavigator} />
             <MealsTabNavigator.Screen name="Favorite" component={FavoritesNavigator} />
         </MealsTabNavigator.Navigator>
     )
@@ -110,4 +118,4 @@ const DrawerNavigator = () => {
     )
 }
 
-export default DrawerNavigator;
+export default MealsNavigator;
