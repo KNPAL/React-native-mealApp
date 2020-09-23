@@ -1,18 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { View, Text, StyleSheet, Switch } from 'react-native';
-
-const FilterSwitch = props => {
-    return (
-      <View style={styles.filterContainer}>
-        <Text>{props.label}</Text>
-        <Switch
-          trackColor={{ true: '#4a148c' }}
-          value={props.state}
-          onValueChange={props.onChange}
-        />
-      </View>
-    );
-  };
+import { View, Text, StyleSheet } from 'react-native';
+import FilterSwitch from '../Components/FilterSwitch';
 
 const FilterScreen = prop => {
     const {navigation} = prop;
@@ -73,13 +61,6 @@ const styles = StyleSheet.create({
         fontSize: 22,
         margin: 20,
         textAlign: 'center'
-    },
-    filterContainer: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        width: '80%',
-        marginVertical: 15
     }
 });
 

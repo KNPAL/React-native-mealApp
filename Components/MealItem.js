@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ImageBackground } from 'react-native';
+import Colors from '../constants/Colors';
 
 const MealItem = props => {
     return (
@@ -48,7 +49,7 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 20,
-        color: 'white',
+        color: Colors.whiteColor,
         textAlign: 'center',
         backgroundColor: 'rgba(0,0,0,0.7)',
         paddingVertical: 5,

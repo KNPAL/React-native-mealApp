@@ -9,6 +9,7 @@ import FavoritesScreen from '../Screens/FavoritesScreen';
 import FilterScreen from '../Screens/FiltersScreen';
 import React from 'react';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+import Colors from '../constants/Colors';
 
 const Stack = createStackNavigator();
 const MealsNavigator = () => {
@@ -16,9 +17,9 @@ const MealsNavigator = () => {
         <Stack.Navigator
             screenOptions={{
                 headerStyle: {
-                    backgroundColor: '#4a148c',
+                    backgroundColor: Colors.primaryColor,
                 },
-                headerTintColor: '#fff',
+                headerTintColor: Colors.whiteColor,
                 headerTitleStyle: {
                     fontWeight: 'bold',
                 },
@@ -52,7 +53,16 @@ const MealsNavigator = () => {
 const favoritesStack = createStackNavigator();
 const FavoritesNavigator = () => {
     return (
-        <favoritesStack.Navigator>
+        <favoritesStack.Navigator
+            screenOptions={{
+                headerStyle: {
+                    backgroundColor: Colors.primaryColor,
+                },
+                headerTintColor: Colors.whiteColor,
+                headerTitleStyle: {
+                    fontWeight: 'bold',
+                },
+            }}>
             <favoritesStack.Screen name="Favorites" component={FavoritesScreen}
                 options={{ title: 'Favorite List' }} />
             <favoritesStack.Screen name="MealDetail" component={MealDetailScreen} />
@@ -63,7 +73,17 @@ const FavoritesNavigator = () => {
 const filterStack = createStackNavigator();
 const filterNavigator = () => {
     return (
-        <filterStack.Navigator>
+        <filterStack.Navigator
+            screenOptions={{
+                headerStyle: {
+                    backgroundColor: Colors.primaryColor,
+                },
+                headerTintColor: Colors.whiteColor,
+                headerTitleStyle: {
+                    fontWeight: 'bold',
+                },
+            }}
+        >
             <filterStack.Screen name="filter" component={FilterScreen}
                 options={{ title: 'Filter Screen' }} />
         </filterStack.Navigator>
@@ -84,8 +104,8 @@ const Drawer = createDrawerNavigator();
 const DrawerNavigator = () => {
     return (
         <Drawer.Navigator initialRouteName="Favorite">
-            <Drawer.Screen name="tab" component={TabNavigator} />
-            <Drawer.Screen name="filters" component={filterNavigator} />
+            <Drawer.Screen name="Meals" component={TabNavigator} />
+            <Drawer.Screen name="Filters" component={filterNavigator} />
         </Drawer.Navigator>
     )
 }
