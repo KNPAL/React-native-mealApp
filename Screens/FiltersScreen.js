@@ -3,6 +3,8 @@ import { View, Text, StyleSheet } from 'react-native';
 import FilterSwitch from '../Components/FilterSwitch';
 import { useDispatch } from 'react-redux';
 import { setFilters } from '../store/actions/meals';
+
+import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 const FilterScreen = prop => {
     const { navigation } = prop;
 
@@ -25,8 +27,19 @@ const FilterScreen = prop => {
     }, [isGlutenFree, isLactoseFree, isVegan, isVegetarian, dispatch]);
 
     useEffect(() => {
-        navigation.setParams({ save: saveFilters });
-    }, [saveFilters]);
+     //   navigation.setParams({ save: saveFilters });
+        navigation.setOptions({
+            headerRight: () => (
+                <HeaderButtons>
+                    <Item
+                        title="Save"
+                        iconName="ios-star"
+                        onPress={saveFilters}
+                    />
+                </HeaderButtons>
+            )
+        });
+    }, [saveFilters, navigation]);
 
     return (<View style={styles.screen}>
         <Text style={styles.title}>Available Filters / Restrictions</Text>
