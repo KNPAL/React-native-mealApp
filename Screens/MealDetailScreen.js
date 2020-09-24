@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react';
 import { View, Text, StyleSheet, ScrollView, ImageBackground, FlatList, Image } from 'react-native';
-import { MEALS } from '../data/dummy-data';
+import { useSelector } from 'react-redux';
 
 const MealDetailScreen = prop => {
     const mealId = prop.route.params.mealId;
     const catId = prop.route.params.categoryId;
-    const selectedMeal = MEALS.find(meal => meal.id === mealId);
+
+    const displayFavMeals = useSelector(state => state.meals.meals);
+    const selectedMeal = displayFavMeals.find(meal => meal.id === mealId);
     useEffect(() => {
         prop.navigation.setOptions({ title: selectedMeal.title });
     });
