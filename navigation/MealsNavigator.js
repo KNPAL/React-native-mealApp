@@ -9,7 +9,6 @@ import MealDetailScreen from '../Screens/MealDetailScreen';
 import FavoritesScreen from '../Screens/FavoritesScreen';
 import FilterScreen from '../Screens/FiltersScreen';
 import React from 'react';
-import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import Colors from '../constants/Colors';
 
 const Stack = createStackNavigator();
@@ -35,17 +34,6 @@ const MealStactNavigator = () => {
             />
             <Stack.Screen name="MealDetail"
                 component={MealDetailScreen}
-                options={{
-                    headerRight: () => (
-                        <HeaderButtons>
-                            <Item
-                                title="Favorite"
-                                iconName="ios-star"
-                                onPress={() => alert('This is a button!')}
-                            />
-                        </HeaderButtons>
-                    )
-                }}
             />
         </Stack.Navigator>
     )
